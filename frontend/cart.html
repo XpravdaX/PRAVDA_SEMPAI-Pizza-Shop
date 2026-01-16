@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - PRAVDA_SEMPAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для корзины */
+        .promo-code {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .promo-code input {
+            flex: 1;
+            min-width: 0; /* Важно для правильного сжатия */
+        }
+
+        .promo-code .btn {
+            white-space: nowrap;
+        }
+
+        /* Улучшаем адаптивность */
+        @media (max-width: 768px) {
+            .promo-code {
+                flex-direction: column;
+            }
+
+            .promo-code .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><span class="logo-red">PRAVDA</span>_SEMPAI</h1>
+                    <p class="logo-subtitle">Лучшая пицца в Москве</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Меню</a></li>
+                    <li><a href="cart.html" class="active">Корзина <span id="cart-count">0</span></a></li>
+                    <li><a href="order.html">Заказы</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-outline" onclick="location.href='index.html'">
+                        <i class="fas fa-arrow-left"></i> Вернуться в меню
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ваша корзина</h2>
+                <p>Проверьте ваш заказ перед оформлением</p>
+            </div>
+
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <!-- Товары будут загружены через JS -->
+                    <div class="empty-cart" id="emptyCart">
+                        <i class="fas fa-shopping-cart fa-4x"></i>
+                        <h3>Ваша корзина пуста</h3>
+                        <p>Добавьте пиццы из меню</p>
+                        <button class="btn btn-primary" onclick="location.href='index.html'">
+                            <i class="fas fa-pizza-slice"></i> Перейти в меню
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="summary-header">
+                        <h3><i class="fas fa-receipt"></i> Сводка заказа</h3>
+                    </div>
+
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Товары (<span id="itemsCount">0</span>)</span>
+                            <span id="itemsPrice">0 ₽</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Доставка</span>
+                            <span id="deliveryPrice">300 ₽</span>
+                        </div>
+                        <div class="summary-row discount">
+                            <span>Скидка</span>
+                            <span id="discount">-0 ₽</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Итого</span>
+                            <span id="totalPrice">300 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-code">
+                        <div class="form-group">
+                            <input type="text" id="promoInput" placeholder="Введите промокод">
+                        </div>
+                        <button class="btn btn-outline" id="applyPromo">Применить</button>
+                    </div>
+
+                    <div class="delivery-info">
+                        <h4><i class="fas fa-shipping-fast"></i> Доставка</h4>
+                        <div class="delivery-options">
+                            <div class="delivery-option active">
+                                <input type="radio" name="delivery" id="delivery1" checked>
+                                <label for="delivery1">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <div>
+                                        <strong>Доставка курьером</strong>
+                                        <small>30-60 минут • 300 ₽</small>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="delivery-option">
+                                <input type="radio" name="delivery" id="delivery2">
+                                <label for="delivery2">
+                                    <i class="fas fa-store"></i>
+                                    <div>
+                                        <strong>Самовывоз</strong>
+                                        <small>ул. Арбат, 25 • Бесплатно</small>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-actions">
+                        <button class="btn btn-primary btn-lg btn-block" id="checkoutBtn">
+                            <i class="fas fa-lock"></i> Оформить заказ
+                        </button>
+
+                        <button class="btn btn-outline btn-block" onclick="location.href='index.html'">
+                            <i class="fas fa-shopping-bag"></i> Продолжить покупки
+                        </button>
+                    </div>
+
+                    <div class="secure-info">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Безопасная оплата • Гарантия возврата</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><span class="logo-red">PRAVDA</span>_SEMPAI</h2>
+                    <p>Лучшая пицца в Москве с 2015 года</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Пятницкая, 12</p>
+                        <p><i class="fas fa-phone"></i> +7 (495) 765-43-21</p>
+                        <p><i class="fas fa-clock"></i> Ежедневно 10:00 - 23:00</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>О нас</h4>
+                        <p>Готовим с душой и страстью. Итальянские традиции в сердце Москвы.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PRAVDA_SEMPAI. Все права защищены.</p>
+                <p><i class="fas fa-truck"></i> Бесплатная доставка при заказе от 1000 руб.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

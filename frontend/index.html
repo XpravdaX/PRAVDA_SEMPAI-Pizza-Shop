@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAVDA_SEMPAI - Лучшая пицца в Москве</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><span class="logo-red">PRAVDA</span>_SEMPAI</h1>
+                    <p class="logo-subtitle">Лучшая пицца в Москве</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Меню</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count">0</span></a></li>
+                    <li><a href="order.html">Заказы</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-outline" onclick="location.href='order.html'">
+                        <i class="fas fa-shopping-bag"></i> Мои заказы
+                    </button>
+                    <button class="btn btn-primary" onclick="location.href='cart.html'">
+                        <i class="fas fa-shopping-cart"></i> Корзина
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Настоящая итальянская страсть в каждой пицце</h2>
+                <p class="hero-subtitle">Готовим по традиционным рецептам с 2015 года. Только свежие ингредиенты и ручная работа.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">1,500+</span>
+                        <span class="stat-text">довольных клиентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">30 мин</span>
+                        <span class="stat-text">среднее время доставки</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-text">рейтинг по отзывам</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наше меню</h2>
+                <p>Выберите свою любимую пиццу или создайте собственную</p>
+                <div class="pizza-filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="classic">Классические</button>
+                    <button class="filter-btn" data-filter="spicy">Острые</button>
+                    <button class="filter-btn" data-filter="meat">Мясные</button>
+                    <button class="filter-btn" data-filter="veg">Вегетарианские</button>
+                </div>
+            </div>
+
+            <div class="pizza-grid" id="pizza-menu">
+                <!-- Пиццы будут загружены через JavaScript -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Загружаем меню...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставляем за 30 минут или пицца бесплатно*</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <h3>Готовим в печи</h3>
+                    <p>Настоящая дровяная печь для идеальной корочки</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Свежие продукты</h3>
+                    <p>Ежедневно закупаем фермерские продукты</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Лучшие в Москве</h3>
+                    <p>Победитель конкурса "Московская пицца 2023"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><span class="logo-red">PRAVDA</span>_SEMPAI</h2>
+                    <p>Лучшая пицца в Москве с 2015 года</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Пятницкая, 12</p>
+                        <p><i class="fas fa-phone"></i> +7 (495) 765-43-21</p>
+                        <p><i class="fas fa-clock"></i> Ежедневно 10:00 - 23:00</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>О нас</h4>
+                        <p>Готовим с душой и страстью. Итальянские традиции в сердце Москвы.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PRAVDA_SEMPAI. Все права защищены.</p>
+                <p><i class="fas fa-truck"></i> Бесплатная доставка при заказе от 1000 руб.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для пиццы -->
+    <div class="modal" id="pizzaModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Контент будет загружен через JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

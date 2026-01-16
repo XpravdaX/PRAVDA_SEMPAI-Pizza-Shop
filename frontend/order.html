@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - PRAVDA_SEMPAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><span class="logo-red">PRAVDA</span>_SEMPAI</h1>
+                    <p class="logo-subtitle">Лучшая пицца в Москве</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Меню</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count">0</span></a></li>
+                    <li><a href="order.html" class="active">Заказы</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-outline" onclick="location.href='cart.html'">
+                        <i class="fas fa-arrow-left"></i> Вернуться в корзину
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Order Section -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-container">
+                <!-- Левая часть: Форма заказа -->
+                <div class="order-form">
+                    <div class="section-header">
+                        <h2>Оформление заказа</h2>
+                        <p>Заполните информацию для доставки</p>
+                    </div>
+
+                    <form id="orderForm">
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Контактная информация</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя *</label>
+                                    <input type="text" id="name" required placeholder="Иван Иванов">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Телефон *</label>
+                                    <input type="tel" id="phone" required placeholder="+7 (999) 999-99-99">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="ivan@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-map-marker-alt"></i> Адрес доставки</h3>
+                            <div class="form-group">
+                                <label for="address">Улица, дом, квартира *</label>
+                                <input type="text" id="address" required placeholder="ул. Арбат, д. 25, кв. 12">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="entrance">Подъезд</label>
+                                    <input type="text" id="entrance" placeholder="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="floor">Этаж</label>
+                                    <input type="number" id="floor" placeholder="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="intercom">Домофон</label>
+                                    <input type="text" id="intercom" placeholder="12К">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-clock"></i> Время доставки</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="deliveryTime">Когда доставить?</label>
+                                    <select id="deliveryTime">
+                                        <option value="asap">Как можно скорее (~30 мин)</option>
+                                        <option value="30">Через 30 минут</option>
+                                        <option value="60">Через 1 час</option>
+                                        <option value="90">Через 1.5 часа</option>
+                                        <option value="specific">Указать точное время</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="specificTime" style="display: none;">
+                                    <label for="exactTime">Точное время</label>
+                                    <input type="time" id="exactTime">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Оплата</h3>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="cash" checked>
+                                    <div class="payment-content">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <div>
+                                            <strong>Наличными курьеру</strong>
+                                            <small>При получении заказа</small>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="card">
+                                    <div class="payment-content">
+                                        <i class="fas fa-credit-card"></i>
+                                        <div>
+                                            <strong>Картой онлайн</strong>
+                                            <small>Безопасная оплата</small>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="applepay">
+                                    <div class="payment-content">
+                                        <i class="fab fa-apple-pay"></i>
+                                        <div>
+                                            <strong>Apple Pay</strong>
+                                            <small>Быстрая оплата</small>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-comment-alt"></i> Комментарий к заказу</h3>
+                            <div class="form-group">
+                                <textarea id="comment" rows="3" placeholder="Например: позвонить за 5 минут до доставки, без звонка в домофон и т.д."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-agreement">
+                            <label class="checkbox">
+                                <input type="checkbox" required>
+                                <span>Я согласен с <a href="#">правилами обработки данных</a> и <a href="#">условиями доставки</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-check-circle"></i> Подтвердить заказ
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Правая часть: Сводка заказа -->
+                <div class="order-summary">
+                    <div class="summary-header">
+                        <h3>Ваш заказ</h3>
+                        <a href="cart.html" class="edit-link">Изменить</a>
+                    </div>
+
+                    <div class="order-items" id="orderItems">
+                        <!-- Товары будут загружены из корзины -->
+                    </div>
+
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>Сумма заказа</span>
+                            <span id="orderSubtotal">0 ₽</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Доставка</span>
+                            <span id="orderDelivery">300 ₽</span>
+                        </div>
+                        <div class="total-row discount">
+                            <span>Скидка</span>
+                            <span id="orderDiscount">0 ₽</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>К оплате</span>
+                            <span id="orderTotal">300 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="delivery-estimate">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <strong>Примерное время доставки</strong>
+                            <p id="deliveryEstimate">30-45 минут</p>
+                        </div>
+                    </div>
+
+                    <div class="order-tips">
+                        <h4>Советы от шефа:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Пиццу лучше есть горячей</li>
+                            <li><i class="fas fa-check-circle"></i> Соусы добавят вкуса</li>
+                            <li><i class="fas fa-check-circle"></i> Холодное пиво идеально дополняет</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><span class="logo-red">PRAVDA</span>_SEMPAI</h2>
+                    <p>Лучшая пицца в Москве с 2015 года</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Пятницкая, 12</p>
+                        <p><i class="fas fa-phone"></i> +7 (495) 765-43-21</p>
+                        <p><i class="fas fa-clock"></i> Ежедневно 10:00 - 23:00</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>О нас</h4>
+                        <p>Готовим с душой и страстью. Итальянские традиции в сердце Москвы.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PRAVDA_SEMPAI. Все права защищены.</p>
+                <p>Заказы принимаются ежедневно с 10:00 до 22:30</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно подтверждения -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Заказ оформлен!</h3>
+                <p>Ваш заказ №<span id="orderNumber">1547</span> принят в обработку</p>
+                <p id="orderDetails">Доставка ожидается через 30-45 минут</p>
+                <div class="order-actions">
+                    <button class="btn btn-outline" onclick="location.href='index.html'">
+                        <i class="fas fa-pizza-slice"></i> Заказать ещё
+                    </button>
+                    <button class="btn btn-primary" id="trackOrder">
+                        <i class="fas fa-map-marker-alt"></i> Отслеживать заказ
+                    </button>
+                </div>
+                <p class="modal-note">
+                    <i class="fas fa-info-circle"></i> С вами свяжется курьер для подтверждения
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>
